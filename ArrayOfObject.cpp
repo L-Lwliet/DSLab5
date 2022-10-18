@@ -50,7 +50,7 @@ int main() {
 
    int op, counter = 0;
    do{
-   cout<<"Select an option: \n1. Bubble sort CGPA wise \n2. Selection sort Credit wise \n3. Passes Completed \n4. Close"<<endl;
+   cout<<"\n\nSelect an option: \n1. Bubble sort CGPA wise \n2. Selection sort Credit wise \n3. Passes Completed \n4. Close"<<endl;
    cin>>op;
 
 
