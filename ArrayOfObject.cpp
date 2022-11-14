@@ -26,6 +26,7 @@ class Student {
 
 int main() {
    Student *st = new Student[2];
+   Student *temp = new Student[2];
 
    string id, name;
    float cg, temp;
@@ -48,7 +49,7 @@ int main() {
       cout<<endl;
    }
 
-   int op, counter = 0;
+   int op, count = 0;
    do{
    cout<<"\n\nSelect an option: \n1. Bubble sort CGPA wise \n2. Selection sort Credit wise \n3. Passes Completed \n4. Close"<<endl;
    cin>>op;
@@ -60,12 +61,12 @@ int main() {
        for(int i=0; i<(2-1); i++){
         for(int j=0; j<(2-i-1); j++){
             if(st[j].cg>st[j+1].cg){
-                temp = st[j].cg;
-                st[j].cg = st[j+1].cg;
-                st[j+1].cg = temp;
+                temp[j] = st[j];
+                st[j] = st[j+1];
+                st[j+1] = temp[j];
             }
         }
-        counter++;
+        
       }
       cout<<"Student info after applying bubble sort CGPA wise: ";
       for(int i=0; i <2; i++) {
@@ -82,7 +83,7 @@ int main() {
             for(j=i+1; j<2; j++){
                 if(st[j].cc < st[ minIndex ].cc){
                     minIndex=j;
-                    swap(st[ minIndex ].cc, st[ i ].cc);
+                    swap(st[ minIndex ], st[ i ]);
                 }
             }
         }
@@ -94,7 +95,24 @@ int main() {
       }
     break;
 
-   case 3: cout<<"Number of passes: "<<5-1<<endl;
+   case 3: string name;
+           cout << "Enter a name to search: ";
+           cin >> name;
+           int count=0;
+      
+
+        for(i=0; i<5; i++){
+            if(st[i].name == name){
+                cout << "Student is found!"<<endl;
+                p[i].printDetails();
+                count++;
+                break;
+            }
+        }
+      
+        if(count==0){
+            cout  << "Student not found\n";
+        }
     break;
    }}
    while(op!=4);
